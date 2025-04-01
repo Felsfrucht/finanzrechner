@@ -14,6 +14,9 @@ public class Kreditrechner extends Rechner {
 
     // Fälligkeitsdarlehen
     public void berechneFaelligkeitsdarlehen() {
+    	System.out.println(this.getBetrag());
+    	System.out.println(this.getZinssatz());
+    	System.out.println(this.getLaufzeit());
         double zinsbetrag = this.getBetrag() * this.getZinssatz();
         this.setZinsbetrag(zinsbetrag);
         double gesamtzinsen = this.getZinsbetrag() * this.getLaufzeit();

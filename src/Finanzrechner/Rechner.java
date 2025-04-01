@@ -3,17 +3,14 @@ import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.geom.Rectangle2D;
-import java.text.Format;
 import java.util.ArrayList;
 import java.util.Arrays;
-
-import javax.swing.JOptionPane;
 
 public class Rechner
 {	//Variable
 	private double betrag;
 	private double zinssatz;
-	private Integer laufzeit;
+	private double laufzeit;
 	private double endbetrag;
 	private double gesamtzinsen;
 	private double tilgung;
@@ -36,7 +33,7 @@ public class Rechner
 	public double getZinssatz() {
 		return this.zinssatz;
 	}
-	public Integer getLaufzeit() {
+	public double getLaufzeit() {
 		return this.laufzeit;
 	}
 	public double getEndbetrag() {
@@ -65,7 +62,7 @@ public class Rechner
 	public void setZinssatz(double pZinssatz) {
 		this.zinssatz = pZinssatz;
 	}
-	public void setLaufzeit(Integer pLaufzeit) {
+	public void setLaufzeit(double pLaufzeit) {
 		this.laufzeit = pLaufzeit;
 	}
 	public void setEndbetrag(double pEndbetrag) {
@@ -97,44 +94,37 @@ public class Rechner
 	}
 	
 	// Schreibmethoden
-	
+	public String schreibeZins() {
+	    return String.format(
+	        "Endbetrag: %.2f €\nGesamtzinsen: %.2f €", 
+	        this.endbetrag, 
+	        this.gesamtzinsen
+	    );
+	   
+	}
 
-	public String schreibeKredit1und2undZins() {
-		return "|Endbetrag:     " + String.format("%.2f", this.endbetrag) + " € "
-	    		+ "\n|Gesamtzinsen: " + String.format("%.2f", this.gesamtzinsen) + " €";
+	public String schreibeKredit1und2() {
+	    return String.format(
+	        "Endbetrag: %.2f €\nGesamtzinsen: %.2f €", 
+	        this.endbetrag, 
+	        this.gesamtzinsen
+	    );
 	}
 
 	public String schreibeAnuitaet() {
-	    return "|Endbetrag:     " + String.format("%.2f", this.endbetrag) + " € "
-	    	    + "\n|Gesamtzinsen: " + String.format("%.2f", this.gesamtzinsen) + " €"
-	          	+ "\n|Annuität:                 " + String.format("%.2f", this.annuitaet);
-	}
-	
-	
-	
-	//Fehlercodes
-	public String fehlercode_1(){
-		return "Fehler: Der Betrag muss größer als 0 sein.\n\n Betrag wird auf 120000.00 gesetzt";
-	}
-	public String fehlercode_2(){
-		return "Fehler: Der Zinssatz muss größer als 0 sein.\n\n Zinssatz wird auf 4.5% gesetzt";
-	}
-	public String fehlercode_3(){
-		return "Fehler: Die Laufzeit muss größer als 0 sein.\n\n Laufzeit wird auf 7 Jahre gesetzt";
-	}
-	public String fehlercode_4(){
-		return "Fehler: Bitte geben Sie eine gültige Zahl ein.\n\n Fehlerhafte Zahl wird auf einen Standartwert zurück gesetzt";
+	    return String.format(
+	        "Endbetrag: %.2f €\nGesamtzinsen: %.2f €\nAnnuität: %.2f ", 
+	        this.endbetrag, 
+	        this.gesamtzinsen, 
+	        this.annuitaet
+	    );
 	}
 
-	@Override
-	public String toString() {
-		return  "Eingabe:\n"+
-		           "| Betrag = " + betrag + "\n" +
-		           "| Zinssatz = " + zinssatz + "\n" +
-		           "| Laufzeit = " + laufzeit;
-	}
+	
 	
 	//ToString Methode
-	
+	public String toString() {
+		return "";
+	}
 }
 

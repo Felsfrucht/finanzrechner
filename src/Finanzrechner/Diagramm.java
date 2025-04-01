@@ -22,13 +22,12 @@ public class Diagramm extends JPanel {
         if (jaehrlicheZahlungen == null || jaehrlicheZahlungen.length == 0) {
             return;
         }
-       
-        
-        Graphics2D g2 = (Graphics2D) g;       
+
+        Graphics2D g2 = (Graphics2D) g;
+        int yPos = 100;
         int xPos = 50;
-        int maxHeight = 200;
+        int maxHeight = 150;
         int maxWidth = getWidth() - 100;
-        int yPos = (getHeight() - maxHeight) / 2; 
         double max = 0;
 
         // Höchsten Wert im Array finden
@@ -57,19 +56,16 @@ public class Diagramm extends JPanel {
 
             // Balken zeichnen
             Rectangle2D.Double r = new Rectangle2D.Double(balkenXPos, balkenYPos, balkenWidth, balkenHeight);
-            g2.setColor(new Color(224, 234, 254));  // Blau für den Balken
+            g2.setColor(new Color(0, 128, 255));  // Blau für den Balken
             g2.fill(r);
             g2.setColor(Color.BLACK);
             g2.draw(r);
 
             // Beschriftung der Balkenwerte
             g2.setFont(new Font("Arial", Font.PLAIN, 12));
-            if(i % 2 == 0 ){
-            	g2.drawString(String.format("%.2f", jaehrlicheZahlungen[i]), 
-                        (int) (balkenXPos + balkenWidth / 3), (int) (balkenYPos - 5));
+            g2.drawString(String.format("%.2f", jaehrlicheZahlungen[i]), 
+                          (int) (balkenXPos + balkenWidth / 3), (int) (balkenYPos - 5));
 
-            }
-            
             // x-Achsen-Beschriftungen
             String xLabel = "" + (i + 1);
             g2.drawString(xLabel, (int) (balkenXPos + balkenWidth / 3), yPos + maxHeight + 15);

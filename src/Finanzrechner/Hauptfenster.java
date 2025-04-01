@@ -18,8 +18,6 @@ import java.awt.SystemColor;
 import javax.swing.JScrollPane;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.BorderLayout;
-import javax.swing.SwingConstants;
 public class Hauptfenster extends JFrame
 {
 	private JPanel Startseite;
@@ -54,33 +52,21 @@ public class Hauptfenster extends JFrame
 	{
 		setTitle("Finanzrechner");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(100, 100, 331, 331);
+        setBounds(100, 100, 750, 700);
         Startseite = new JPanel();
-        Startseite.setBackground(Color.DARK_GRAY);
+        Startseite.setBackground(SystemColor.control);
+        Startseite.setLayout(null);
         setContentPane(Startseite);
-        Startseite.setLayout(new BorderLayout(0, 0));
         
-        JLabel lblFinanzrechner = new JLabel("Finanzrechner");
-        lblFinanzrechner.setForeground(Color.WHITE);
-        lblFinanzrechner.setFont(new Font("Arial", Font.PLAIN, 46));
-        Startseite.add(lblFinanzrechner, BorderLayout.NORTH);
-        
-        JPanel panel = new JPanel();
-        panel.setForeground(Color.WHITE);
-        panel.setBackground(Color.DARK_GRAY);
-        Startseite.add(panel, BorderLayout.CENTER);
-        
-        JButton btKreditrechner = new JButton("Kreditrechner");
-        btKreditrechner.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		Kreditview Kredit = new Kreditview();
-        	}
-        });
-        btKreditrechner.setForeground(Color.WHITE);
-        btKreditrechner.setBackground(new Color(0, 153, 204));
-        btKreditrechner.setFont(new Font("Arial", Font.PLAIN, 33));
-        btKreditrechner.setFocusPainted(false);
-        panel.add(btKreditrechner);
+        JLabel lb‹berschrift = new JLabel("Finanzrechner");
+		lb‹berschrift.setForeground(Color.WHITE);
+		lb‹berschrift.setBackground(SystemColor.textHighlight);
+		lb‹berschrift.setOpaque(true);
+		lb‹berschrift.setFont(new Font("Impact", Font.PLAIN, 22));
+		lb‹berschrift.setBounds(10, 11, 711, 48);
+		Startseite.add(lb‹berschrift);
+
+        // Button erstellen
         
         JButton btZinsrechner = new JButton("Zinsrechner");
         btZinsrechner.addActionListener(new ActionListener() {
@@ -89,25 +75,19 @@ public class Hauptfenster extends JFrame
         		Zinsen.setVisible(true);
         	}
         });
-        btZinsrechner.setForeground(Color.WHITE);
-        btZinsrechner.setBackground(new Color(0, 153, 204));
-        btZinsrechner.setFont(new Font("Arial", Font.PLAIN, 33));
-        panel.add(btZinsrechner);
+        btZinsrechner.setBounds(129, 313, 143, 44);
+        Startseite.add(btZinsrechner);
         
-        JPanel panel_1 = new JPanel();
-        panel_1.setBackground(Color.DARK_GRAY);
-        Startseite.add(panel_1, BorderLayout.SOUTH);
-        
-        JButton btSchliessen = new JButton("Schlie\u00DFen");
-        btSchliessen.addActionListener(new ActionListener() {
+        JButton btKreditrechner = new JButton("Kreditrechner");
+        btKreditrechner.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		System.exit(0);
+        		Kreditview Kredit = new Kreditview();
+        		
+        		
         	}
         });
-        btSchliessen.setForeground(SystemColor.text);
-        btSchliessen.setBackground(Color.DARK_GRAY);
-        btSchliessen.setFont(new Font("Arial", Font.PLAIN, 28));
-        panel_1.add(btSchliessen);
+        btKreditrechner.setBounds(452, 313, 143, 44);
+        Startseite.add(btKreditrechner);  
     }
 	
 }
